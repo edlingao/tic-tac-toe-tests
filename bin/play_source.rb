@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require 'colorize'
 #board.rb
 require_relative '../lib/board.rb'
@@ -47,7 +49,7 @@ def play(win,players,g,board)
         
         if cats_game && !win
             win = true
-            pi = 10
+            i = 10
             10.times{
                 system("clear")
                 puts board.print_board();
@@ -78,8 +80,9 @@ has_win = false
 
 while(playing) do
     choose = option
+    menu_options = ["Play", "Basic instructions", "Exit"]
     system("clear")
-    puts move_on_menu(option)
+    puts move_on_menu(option,menu_options)
     part = gets.chomp
     option += select_from_menu(part)
     option = 0 if option == 3 || option <= 0
