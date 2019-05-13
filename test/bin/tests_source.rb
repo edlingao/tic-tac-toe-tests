@@ -1,17 +1,17 @@
 require 'colorize'
 #player.rb
-require '../lib/player'
+require '../../lib/player'
 #board.rb
-require '../lib/board'
+require '../../lib/board'
 #game.rb
-require '../lib/game'
+require '../../lib/game'
 
 #tic-test-win.rb
-require_relative 'tic-test-wins'
+require '../lib/tic-test-wins'
 #tic-test-draw.rb
-require_relative 'tic-test-draw'
+require '../lib/tic-test-draw'
 #menu_module.rb
-require_relative '../lib/menu_module'
+require '../../lib/menu_module'
 
 include TestWins
 include TestDraw
@@ -45,7 +45,7 @@ while(testing) do
                 puts "\n\nEVERY DRAW TEST WAS SUCCESFULL!!" if test_draw == 5
                 sleep(3)
                 option = 0
-                
+
             when 1 then 
                 test_p1 = 0
                 test_p2 = 0
