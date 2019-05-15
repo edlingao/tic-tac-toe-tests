@@ -1,10 +1,11 @@
 require 'colorize'
 #player.rb
-require '../../lib/player'
+require './lib/player'
 #board.rb
-require '../../lib/board'
+require './lib/board'
 #game.rb
-require '../../lib/game'
+require './lib/game'
+
 
 
 module TestDraw
