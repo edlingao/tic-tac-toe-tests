@@ -65,19 +65,8 @@ module TestDraw
                 b = Board.new()
                 g = Game.new(b,p1,p2)
             end
-            system("clear")
-            puts "Testing draws...\n\n"
-            puts "Test #{i}.."
             fill_board_ex_draw(g,p1,p2,i)
-            puts b.print_board()
-            if g.cats_game?
-                puts "Draw!!\n\nPASS" 
-                test += 1
-            else 
-                puts "FAIL" 
-            end
-            puts "Next test in 2 seconds"
-            sleep(2)
+            test += 1 if g.cats_game?
             i += 1
             break if i > 5
         end

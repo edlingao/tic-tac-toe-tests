@@ -19,6 +19,7 @@ p1 = Player.new("E", "X".colorize(:color => :red))
 p2 = Player.new("V", "O".colorize(:color => :cyan))
 b = Board.new()
 g =Game.new(b,p1,p2)
+bp = b.board_position
 
 RSpec.describe TestWins do
     describe "#win_test?" do
@@ -44,6 +45,54 @@ RSpec.describe TestDraw do
             test_draw = 0
             test_draw = draw_test?(g,p1,p2)
             expect(test_draw).to eql(5)
+        end
+    end
+end
+
+RSpec.describe Player do
+    describe "#initialice" do
+        it "Fills a player with the correspond information" do
+            symbol = "X".colorize(:color => :red)
+
+            expect(p1.name).to eql("E")
+            expect(p1.symbol).to eql(symbol)
+            
+            symbol = "O".colorize(:color => :cyan)
+
+            expect(p2.name).to eql("V")
+            expect(p2.symbol).to eql(symbol)
+        end
+    end
+end
+
+
+RSpec.describe Board do
+    describe "#print_board" do
+        it "Prints the board on the screen" do
+            board = "
+           #{bp[0]} | #{bp[1]} | #{bp[2]}
+           --|---|--
+           #{bp[3]} | #{bp[4]} | #{bp[5]}
+           --|---|--
+           #{bp[6]} | #{bp[7]} | #{bp[8]}\n"
+
+           expect(b.print_board).to eql(board)
+
+        end
+    end
+
+    describe "#play_position" do
+        it "Place the symbol to the specific coordenate" do
+            symbol = "X".colorize(:color => :red)
+
+            board = "
+           #{bp[0]} | #{bp[1]} | #{bp[2]}
+           --|---|--
+           #{bp[3]} | #{symbol} | #{bp[5]}
+           --|---|--
+           #{bp[6]} | #{bp[7]} | #{bp[8]}\n"
+            b.play_position(4,p1.symbol)
+            expect(b.print_board).to eql(board)
         end
     end
 end

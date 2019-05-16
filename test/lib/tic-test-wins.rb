@@ -59,20 +59,10 @@ module TestWins
                 b = Board.new()
                 g = Game.new(b,p1,p2)
             end
-            system("clear")
-            puts "Testing wins...\n\n"
-            puts "TESTING PLAYER #{p.name}"
-            puts "Test #{i}.."
+            
             fill_board_ex(g,p,i)
-            puts b.print_board()
-            if g.win?(p) 
-                puts "WIN!!\n\nPASS" 
-                test += 1
-            else 
-                puts "FAIL" 
-            end
-            puts "Next test in 2 seconds"
-            sleep(2)
+            test += 1 if g.win?(p) 
+            
             i += 1
             break if i > 8
         end
