@@ -80,8 +80,9 @@ has_win = false
 
 while(playing) do
     choose = option
+    menu_options = ["Play", "Basic instructions", "Exit"]
     system("clear")
-    puts move_on_menu(option)
+    puts move_on_menu(option,menu_options)
     part = gets.chomp
     option += select_from_menu(part)
     option = 0 if option == 3 || option <= 0

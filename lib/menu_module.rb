@@ -15,9 +15,8 @@ module Menu
         end
     end
 
-    def move_on_menu(option)
+    def move_on_menu(option, menu_options)
 
-        menu_options = ["Play", "Basic instructions", "Exit"]
         display = "To move through options please press up/down key and then press enter\nTo choose an option just press enter or input 'S' or 's' and then press enter key\n\n\t\t--- Menu ---\n"
         menu_options.each_with_index{|value, i|
             if i == option then display += "->#{menu_options[option].colorize(:color => :light_magenta)}\n"
